@@ -1,10 +1,22 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import Articles from "./components/Articles";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <header>NC NEWS</header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Articles />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
