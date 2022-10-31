@@ -23,17 +23,24 @@ const Articles = () => {
     }, [topic]);
     
     if (isLoading) return <h2 className="loading">LOADING</h2>
-    else return (
-     <section className="articles-container">
-                {articles.map(({author, title, article_id, topic}) => {
-                    return <ArticleCard 
-                        key={article_id} 
-                        author={author} 
-                        title={title}
-                        topic={topic}
-                        />
-                })}
-     </section>   
+    else return (<section>
+            <div className="articles-header">
+                <h2>{topic} Articles</h2>
+                <p>Click on an article to view</p>
+            </div>
+            <div className="articles-container">
+
+                        {articles.map(({author, title, article_id, topic}) => {
+                            return <ArticleCard 
+                                key={article_id} 
+                                author={author} 
+                                title={title}
+                                article_id={article_id}
+                                topic={topic}
+                                />
+                        })}
+            </div>
+     </section>
     )
 };
 
