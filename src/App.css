@@ -11,6 +11,10 @@
   background-color: #D1CEC9;
 }
 
+a {
+  all: unset;
+}
+
 .nav {
   display: flex;
   justify-content: space-evenly;
@@ -26,6 +30,7 @@
   font-family: 'Jost', sans-serif;
   font-size: 18px;
   color: #3B424A;
+  cursor: pointer;
 }
 
 .dropdown {
@@ -56,6 +61,7 @@
   font-size: 18px;
   color: #3B424A;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .dropdown-content a {
@@ -73,6 +79,24 @@
   display: block;
 }
 
+.articles-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 0px;
+  font-family: 'Jost', sans-serif;
+  font-size: 30px;
+  color: #3B424A;
+  text-transform: uppercase;
+}
+
+.articles-header > h2 {
+  align-self: center;
+  height: 10px;
+}
+
 .articles-container {
   padding: 10px 0px 10px 0px;
 }
@@ -84,6 +108,13 @@
   border-radius: 20px;
   font-family: 'Jost', sans-serif;
   background-color: #D1CEC9;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.article-card:hover {
+  background-color: #ADB6A4;
+  border: 2px solid;
 }
 
 .article-card .top-row {
@@ -107,6 +138,38 @@
   color: #3B424A;
 }
 
+.article {
+  padding: 20px 100px 20px 100px;
+}
+
+.article-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-transform: uppercase;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  color: #3B424A;
+}
+
+.article-body {
+  text-align: justify;
+  font-family: 'Jost', sans-serif;
+  font-size: 16px;
+  color: #3B424A;
+}
+
+.article-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: 'Jost', sans-serif;
+  font-size: 20px;
+  color: #3B424A;
+}
+
+
 footer {
   display: flex;
   justify-content: space-between;
@@ -119,7 +182,16 @@ footer {
   color: #3B424A;
 }
 
-@media only screen and (min-width: 600px) {
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 700px) {
   .articles-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -128,6 +200,17 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-height: 200px;
+  }
+  .article-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: 'Jost', sans-serif;
+    font-size: 20px;
+    color: #3B424A;
   }
 }
+
 
