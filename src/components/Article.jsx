@@ -12,7 +12,6 @@ const Article = () => {
         fetchArticleById(article_id).then((article) => {
             setArticle(article);
             setIsLoading(false);
-            console.log(article)
         })
     },[])
 
