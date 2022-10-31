@@ -13,6 +13,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Articles />} />
+          <Route path="/topics/:topic" element={<Articles />} />
         </Routes>
         <Footer />
       </div>

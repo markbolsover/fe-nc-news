@@ -1,18 +1,26 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { fetchArticles } from "../api";
 import ArticleCard from "./ArticleCard";
 
 const Articles = () => {
     const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    
+    const {topic} = useParams();
+
     useEffect(() => {
         setIsLoading(true);
         fetchArticles().then((articles) => {
-            setArticles(articles);
-            setIsLoading(false);
+            if (topic) {
+                const filteredArticles = articles.filter(article => article.topic == topic)
+                setArticles(filteredArticles);
+                setIsLoading(false);
+            } else {
+                setArticles(articles);
+                setIsLoading(false);
+            }
         });
-    }, []);
+    }, [topic]);
     
     if (isLoading) return <h2 className="loading">LOADING</h2>
     else return (
