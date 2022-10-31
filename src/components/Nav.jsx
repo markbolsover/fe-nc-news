@@ -9,7 +9,7 @@ const Nav = () => {
       fetchTopics().then((topics) => {
         setTopics(topics);
       });
-    }, []);
+    }, [topics]);
 
     return (
     <nav className="nav">
