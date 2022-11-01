@@ -13,7 +13,7 @@ const Article = () => {
             setArticle(article);
             setIsLoading(false);
         })
-    },[])
+    }, [article_id])
 
     if (isLoading) return <h2 className="loading">LOADING</h2>
     else return (

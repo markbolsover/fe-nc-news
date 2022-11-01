@@ -12,7 +12,7 @@ const Articles = () => {
         setIsLoading(true);
         fetchArticles().then((articles) => {
             if (topic) {
-                const filteredArticles = articles.filter(article => article.topic == topic)
+                const filteredArticles = articles.filter(article => article.topic === topic)
                 setArticles(filteredArticles);
                 setIsLoading(false);
             } else {

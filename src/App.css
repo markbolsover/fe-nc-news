@@ -80,21 +80,20 @@ a {
 }
 
 .articles-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  margin-bottom: 0px;
+  text-align: center;
+  width: 100%;
   font-family: 'Jost', sans-serif;
   font-size: 30px;
   color: #3B424A;
   text-transform: uppercase;
 }
 
+.articles-header > p {
+  margin: 0px 40px 0px 40px;
+}
+
 .articles-header > h2 {
-  align-self: center;
-  height: 10px;
+  margin: 20px 40px 10px 40px;
 }
 
 .articles-container {
@@ -139,7 +138,7 @@ a {
 }
 
 .article {
-  padding: 20px 100px 20px 100px;
+  padding: 20px 30px 20px 30px;
 }
 
 .article-header {
@@ -210,6 +209,9 @@ footer {
     font-family: 'Jost', sans-serif;
     font-size: 20px;
     color: #3B424A;
+  }
+  .article {
+    padding: 20px 100px 20px 100px;
   }
 }
 
