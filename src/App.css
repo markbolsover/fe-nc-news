@@ -151,6 +151,11 @@ a {
   color: #3B424A;
 }
 
+.article-header-bottom-row {
+  display: flex;
+  justify-content: space-between;
+}
+
 .article-body {
   text-align: justify;
   font-family: 'Jost', sans-serif;
@@ -168,6 +173,50 @@ a {
   color: #3B424A;
 }
 
+.votes-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.vote-button-right, .vote-button-left {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border: none;
+}
+
+.vote-button-left {
+  margin-left: 10px;
+}
+
+.arrows {
+display: flex;
+align-items: center;
+}
+
+.up-arrow, .down-arrow {
+  height: 25px;
+  width: 20px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.down-arrow {
+  transform: rotate(180deg);
+}
+
+.up-arrow:hover {
+  background-color: green;
+}
+
+.down-arrow:hover {
+  background-color: red;
+}
+
+.error {
+  font-size: 16px;
+  color: red;
+}
 
 footer {
   display: flex;
@@ -181,15 +230,6 @@ footer {
   color: #3B424A;
 }
 
-
-
-
-
-
-
-
-
-
 @media only screen and (min-width: 700px) {
   .articles-container {
     display: grid;
@@ -199,12 +239,11 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 200px;
+    min-height: 220px;
   }
   .article-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     text-transform: uppercase;
     font-family: 'Jost', sans-serif;
     font-size: 20px;
