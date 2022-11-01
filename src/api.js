@@ -23,7 +23,5 @@ export const fetchTopics = () => {
 };
 
 export const updateVotes = (id, votes) => {
-  return newsApi.patch(`/articles/${id}`, { inc_votes: votes }).then((res) => {
-    console.log(res);
-  });
+  return newsApi.patch(`/articles/${id}`, { inc_votes: votes });
 };
