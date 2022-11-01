@@ -29,14 +29,14 @@ const Articles = () => {
                 <p>Click on an article to view</p>
             </div>
             <div className="articles-container">
-
-                        {articles.map(({author, title, article_id, topic}) => {
+                        {articles.map(({author, title, article_id, topic, votes}) => {
                             return <ArticleCard 
                                 key={article_id} 
                                 author={author} 
                                 title={title}
                                 article_id={article_id}
                                 topic={topic}
+                                votes={votes}
                                 />
                         })}
             </div>

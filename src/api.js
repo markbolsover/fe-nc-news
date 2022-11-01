@@ -21,3 +21,7 @@ export const fetchTopics = () => {
     return res.data.topics;
   });
 };
+
+export const updateVotes = (id, votes) => {
+  return newsApi.patch(`/articles/${id}`, { inc_votes: votes });
+};
