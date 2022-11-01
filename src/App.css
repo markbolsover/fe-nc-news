@@ -230,6 +230,51 @@ footer {
   color: #3B424A;
 }
 
+.comments-container {
+  font-family: 'Jost', sans-serif;
+  color: #3B424A;
+  border: 1px solid #3B424A;
+  padding: 0px 20px 0px 20px;
+  margin: 20px 0px 0px 0px;
+  border-radius: 20px;
+}
+
+.comments-container > h2 {
+  text-transform: uppercase;
+  color: #3B424A;
+  text-align: center;
+  font-size: 26px;
+}
+
+.comment-header {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #3B424A;
+}
+
+.comment-header > p {
+  height: 0px;
+}
+
+.comment-header > h4 {
+  height: 5px;
+}
+
+.comment-card {
+  background-color: #D1CEC9;
+  padding: 0px 20px 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.comment-footer {
+  text-align: right;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
 @media only screen and (min-width: 700px) {
   .articles-container {
     display: grid;
@@ -251,6 +296,10 @@ footer {
   }
   .article {
     padding: 20px 100px 20px 100px;
+  }
+  .comment-header {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 
