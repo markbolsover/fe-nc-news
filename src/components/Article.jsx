@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchArticleById } from "../api";
 import { useParams } from "react-router-dom";
 import Votes from "./Votes";
+import Comments from "./Comments";
 
 const Article = () => {
     const [article, setArticle] = useState([]);
@@ -35,6 +36,7 @@ const Article = () => {
                 <p>{article.author}</p>
                 <p>{article.created_at.slice(0, 10)}</p>
             </div>
+            <Comments article_id={article_id}/>
         </article>
     )
 }
