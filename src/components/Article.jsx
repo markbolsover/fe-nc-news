@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchArticleById, fetchCommentsById } from "../api";
+import { fetchArticleById } from "../api";
 import { useParams } from "react-router-dom";
 import Votes from "./Votes";
 import Comments from "./Comments";
@@ -8,7 +8,6 @@ const Article = () => {
     const [article, setArticle] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [votes, setVotes] = useState();
-    const [comments, setComments] = useState([]);
     const {article_id} = useParams();
 
     useEffect(() => {
@@ -19,14 +18,6 @@ const Article = () => {
             setIsLoading(false);
         })
     }, [article_id])
-
-    useEffect(() => {
-        setIsLoading(true);
-        fetchCommentsById(article_id).then((comments) => {
-            setComments(comments);
-            setIsLoading(false);
-        })
-    }, [])
 
     if (isLoading) return <h2 className="loading">LOADING</h2>
     else return (
@@ -45,19 +36,7 @@ const Article = () => {
                 <p>{article.author}</p>
                 <p>{article.created_at.slice(0, 10)}</p>
             </div>
-
-            <div className="comments-container">
-            <h2>Comments</h2>
-                {comments.map(({author, body, created_at, votes, comment_id}) => {
-                    return <Comments
-                        key={comment_id}
-                        author={author}
-                        body={body}
-                        created_at={created_at}
-                        votes={votes}
-                        />
-                })}
-            </div>
+            <Comments article_id={article_id}/>
         </article>
     )
 }
