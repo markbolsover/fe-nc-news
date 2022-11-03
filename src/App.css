@@ -190,8 +190,8 @@ a {
 }
 
 .arrows {
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .up-arrow, .down-arrow {
@@ -275,6 +275,118 @@ footer {
   text-transform: uppercase;
 }
 
+.add-comment {
+  border: 1px solid #3B424A;
+  z-index: -2;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 0px 20px 10px 20px;
+  
+}
+
+.add-comment-text {
+  padding-left: 20px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.comment-input {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 20px;
+  padding: 0;
+  border-radius: 26px;
+  border: none;
+  background-color: #D1CEC9;
+}
+
+.author-input {
+  width: 100%;
+  border: none;
+  padding: 0;
+  border-radius: 999px;
+  height: 50px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  z-index: 0;
+  background-color: #D1CEC9;
+}
+
+.comment-submit-button {
+  width: 100%;
+  background-color: #D1CEC9;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 0px 10px 0px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-family: 'Jost', sans-serif;
+  color: #3B424A;
+  font-size: 20px;
+  height: 50px;
+  transition: 0.4s;
+}
+
+.comment-submit-button:hover {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.comment-submitted, .comment-loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 340px;
+  border: 1px solid #3B424A;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 0px 20px 10px 20px;
+  font-size: 60px;
+}
+
+.comment-error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 340px;
+  border: 1px solid #3B424A;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 0px 20px 10px 20px;
+  font-size: 30px;
+  color: red;
+  text-transform: uppercase;
+}
+
+.comment-input-error {
+  color: red;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 70px 0px 0px 30px;
+  z-index: -1;
+  position: absolute;
+  transition: 1s;
+}
+
+.comment-input-error-show {
+  margin: 104px 0px 0px 30px;
+}
+
+.author-input-error {
+  color: red;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 30px 0px 0px 30px;
+  z-index: -1;
+  position: absolute;
+  transition: 1s;
+}
+
+.author-input-error-show {
+  margin: 63px 0px 0px 30px;
+}
+
 @media only screen and (min-width: 700px) {
   .articles-container {
     display: grid;
@@ -300,6 +412,9 @@ footer {
   .comment-header {
     flex-direction: row;
     justify-content: space-between;
+  }
+  .comment-input-error, .author-input-error {
+    font-size: 16px;
   }
 }
 

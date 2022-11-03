@@ -31,3 +31,10 @@ export const fetchCommentsById = (id) => {
     return res.data.comments;
   });
 };
+
+export const addComment = (id, commentUsername, commentBody) => {
+  return newsApi.post(`/articles/${id}/comments`, {
+    username: commentUsername,
+    body: commentBody,
+  });
+};
