@@ -18,7 +18,7 @@ const Comments = ({ article_id }) => {
     else return (
         <section className="comments-container">
             <h2>Comments</h2>
-            <AddComment article_id={article_id} />
+            <AddComment article_id={article_id} setComments={setComments}/>
             {comments.map(({author, body, created_at, votes, comment_id}) => {
                 return (
                     <div className="comment-card" key={comment_id}>

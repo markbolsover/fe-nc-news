@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { addComment } from "../api";
+import { addComment, fetchCommentsById } from "../api";
 
-const AddComment = ({article_id}) => {
+const AddComment = ({article_id, setComments}) => {
     const [commentBody, setCommentBody] = useState("");
     const [author, setAuthor] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -22,10 +22,6 @@ const AddComment = ({article_id}) => {
         setAuthor(newAuthor);
     };
 
-    const pageRefresh = () => {
-        window.location.reload(true);
-    };
-
     const submitComment = (event) => {
         if (commentBody.length === 0) {
             event.preventDefault();
@@ -40,17 +36,19 @@ const AddComment = ({article_id}) => {
             element.innerText = "Please enter your name";
         }
         else {
-        setIsLoading(true)
-            addComment(article_id, author, commentBody).then(() => {
-                setCommentBody("");
-                setAuthor("");
-                setIsLoading(false);
-                setCommentSubmitted(true)
-                setTimeout(pageRefresh, 2000)
-            }).catch(() => {
-                setErr("something went wrong, please try again")
-                setTimeout(pageRefresh, 2000);
-            });
+                setIsLoading(true)
+                addComment(article_id, author, commentBody).then(() => {
+                    setCommentBody("");
+                    setAuthor("");
+                    setIsLoading(false);
+                    setCommentSubmitted(true)
+                    fetchCommentsById(article_id).then((comments) => {
+                        setComments(comments);
+                        setIsLoading(false);
+                    })
+                }).catch(() => {
+                    setErr("something went wrong, please try again")
+                });
         };
     };
 
