@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchArticleById } from "../api";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Votes from "./Votes";
 import Comments from "./Comments";
 
@@ -8,7 +8,9 @@ const Article = () => {
     const [article, setArticle] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [votes, setVotes] = useState();
+    const [err, setErr] = useState(null);
     const {article_id} = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         setIsLoading(true);
@@ -16,9 +18,17 @@ const Article = () => {
             setArticle(article);
             setVotes(article.votes);
             setIsLoading(false);
+        }).catch((err) => {
+            setErr(err.response.data.msg);
         })
     }, [article_id])
 
+    if (err) return (
+        <div className="error">
+            <h2>{err}</h2>
+            <button onClick={() => navigate(-1)}>Go back</button>
+        </div>
+    )
     if (isLoading) return <h2 className="loading">LOADING</h2>
     else return (
         <article className="article">

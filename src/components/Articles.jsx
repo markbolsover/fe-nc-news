@@ -1,27 +1,40 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { fetchArticles } from "../api";
 import ArticleCard from "./ArticleCard";
 
 const Articles = () => {
     const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [noArticles, setNoArticles] = useState(null);
     const {topic} = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         setIsLoading(true);
         fetchArticles().then((articles) => {
             if (topic) {
                 const filteredArticles = articles.filter(article => article.topic === topic)
-                setArticles(filteredArticles);
-                setIsLoading(false);
+                if (filteredArticles.length === 0) {
+                    setNoArticles('there are no articles for this topic')
+                } else {
+                    setArticles(filteredArticles);
+                    setIsLoading(false);
+                }
             } else {
                 setArticles(articles);
+                setNoArticles(null)
                 setIsLoading(false);
             }
         });
     }, [topic]);
     
+    if (noArticles) return (
+        <div className="error">
+            <h2>{noArticles}</h2>
+            <button onClick={() => navigate(-1)}>Go back</button>
+        </div>
+    )
     if (isLoading) return <h2 className="loading">LOADING</h2>
     else return (<section>
             <div className="articles-header">

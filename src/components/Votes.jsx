@@ -21,7 +21,7 @@ const Votes = ({votes, id}) => {
         });
     }
 
-    if (err) return <p className="error">{err}</p>;
+    if (err) return <p className="vote-error">{err}</p>;
     else return (
         <div className="votes-container">
             <p>{votes + voteIncrement}</p>
