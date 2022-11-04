@@ -17,7 +17,9 @@ a {
 
 .nav {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #ADB6A4;
   border-top: 1px solid;
   border-bottom: 1px solid;
@@ -26,6 +28,7 @@ a {
 .link {
   display: flex;
   align-items: center;
+  min-height: 70px;
   text-decoration: none;
   font-family: 'Jost', sans-serif;
   font-size: 18px;
@@ -486,6 +489,24 @@ footer {
 }
 
 @media only screen and (min-width: 700px) {
+  .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #ADB6A4;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+  }
+  .link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 18px;
+    color: #3B424A;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
   .articles-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
