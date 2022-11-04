@@ -55,6 +55,7 @@ a {
 .dropdown-button {
   background-color: #ADB6A4;
   height: 100%;
+  width: 190px;
   padding: 16px;
   border: none;
   font-family: 'Jost', sans-serif;
@@ -464,18 +465,18 @@ footer {
 
 .nav-user {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  flex-direction: row;
+  align-items: center;
 }
 
-.user-button {
-  width: 100%;
+.sign-out-button {
+  width: 90px;
+  height: 40px;
   background-color: #D1CEC9;
   border: none;
   border-radius: 999px;
   padding: 10px 0px 10px 0px;
-  margin-bottom: 20px;
+  margin-left: 20px;
   text-transform: uppercase;
   font-family: 'Jost', sans-serif;
   color: #3B424A;
@@ -483,7 +484,7 @@ footer {
   transition: 0.4s;
 }
 
-.user-button:hover {
+.sign-out-button:hover {
   font-size: 14px;
   cursor: pointer;
 }
@@ -498,8 +499,8 @@ footer {
     border-bottom: 1px solid;
   }
   .link {
-    display: flex;
-    align-items: center;
+    justify-content: center;
+    width: 190px;
     text-decoration: none;
     font-family: 'Jost', sans-serif;
     font-size: 18px;

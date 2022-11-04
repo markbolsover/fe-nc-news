@@ -32,8 +32,8 @@ const Nav = () => {
             </div>
         </div>
         <div className="nav-user">
-            <h3 className="nav-item">SIGNED IN AS - {currentUser}</h3>
-            <button onClick={toggleUser} className="user-button">SIGN OUT</button>
+            <h3 className="nav-item">{currentUser}</h3>
+            <button onClick={toggleUser} className="sign-out-button">SIGN OUT</button>
         </div>
     </nav>
     ) 
