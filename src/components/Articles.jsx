@@ -1,40 +1,27 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { fetchArticles } from "../api";
 import ArticleCard from "./ArticleCard";
+import Error from "./Error";
 
 const Articles = () => {
     const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [noArticles, setNoArticles] = useState(null);
+    const [err, setErr] = useState(null);
     const {topic} = useParams();
-    const navigate = useNavigate();
 
     useEffect(() => {
         setIsLoading(true);
-        fetchArticles().then((articles) => {
-            if (topic) {
-                const filteredArticles = articles.filter(article => article.topic === topic)
-                if (filteredArticles.length === 0) {
-                    setNoArticles('there are no articles for this topic')
-                } else {
-                    setArticles(filteredArticles);
-                    setIsLoading(false);
-                }
-            } else {
-                setArticles(articles);
-                setNoArticles(null)
-                setIsLoading(false);
-            }
-        });
+        fetchArticles(topic).then((articles) => {
+            setArticles(articles);
+            setErr(null)
+            setIsLoading(false);
+        }).catch(() => {
+            setErr('there are no articles for this topic');
+        })
     }, [topic]);
     
-    if (noArticles) return (
-        <div className="error">
-            <h2>{noArticles}</h2>
-            <button onClick={() => navigate(-1)}>Go back</button>
-        </div>
-    )
+    if (err) return <Error errorMessage={err}/>
     if (isLoading) return <h2 className="loading">LOADING</h2>
     else return (<section>
             <div className="articles-header">

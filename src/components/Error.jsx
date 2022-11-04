@@ -1,11 +1,12 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Error = () => {
-    const navigate = useNavigate();
+const Error = ({ errorMessage }) => {
     return (
     <div className="error">
-        <h2 >The page you were looking for does not exist</h2>
-        <button onClick={() => navigate(-1)}>Go back</button>
+        <h2 >{errorMessage}</h2>
+        <button>
+            <Link to="/">GO TO ALL ARTICLES</Link>
+        </button>
     </div>
     )
 }
