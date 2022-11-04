@@ -21,16 +21,16 @@ const Votes = ({votes, id}) => {
         });
     }
 
-    if (err) return <p className="error">{err}</p>;
+    if (err) return <p className="vote-error">{err}</p>;
     else return (
         <div className="votes-container">
             <p>{votes + voteIncrement}</p>
             <div className="arrows">
                 <button disabled={voteIncrement !== 0} onClick={handleUpVote} className="vote-button-left">
-                    <img src={upArrow} className="up-arrow"/>
+                    <img src={upArrow} className="up-arrow" alt="up-arrow"/>
                 </button>
                 <button disabled={voteIncrement !== 0} onClick={handleDownVote} className="vote-button-right">
-                    <img src={upArrow} className="down-arrow"/>
+                    <img src={upArrow} className="down-arrow" alt="down-arrow"/>
                 </button>
             </div>
         </div>

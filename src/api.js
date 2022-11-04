@@ -4,8 +4,12 @@ const newsApi = axios.create({
   baseURL: "https://mb-news-api.herokuapp.com/api",
 });
 
-export const fetchArticles = () => {
-  return newsApi.get("/articles").then((res) => {
+export const fetchArticles = (topic) => {
+  let queryString = "/articles";
+  if (topic) {
+    queryString += `?topic=${topic}`;
+  }
+  return newsApi.get(queryString).then((res) => {
     return res.data.articles;
   });
 };
@@ -36,5 +40,11 @@ export const addComment = (id, commentUsername, commentBody) => {
   return newsApi.post(`/articles/${id}/comments`, {
     username: commentUsername,
     body: commentBody,
+  });
+};
+
+export const fetchUsers = () => {
+  return newsApi.get("/users").then((res) => {
+    return res.data.users;
   });
 };
